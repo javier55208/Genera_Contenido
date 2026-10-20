@@ -28,7 +28,42 @@ def categoria_en(texto):
     return None
 
 
+
 def precio_en(texto):
+    # Detectar precios explicitos y conservar el signo negativo.
+    t = normalizar(texto)
+
+    patron = (
+        r'(?:\$\s*|precio\s*(?:de|es|a|:)?\s*|'
+        r'cuesta\s*|vale\s*|a\s+)'
+        r'(-?\s*\d{1,7}(?:[.,]\d{1,2})?)'
+        r'\s*(?:pesos|mxn)?\b'
+    )
+
+    m = re.search(patron, t)
+
+    if not m:
+        m = re.search(
+            r'(?<!\w)(-?\s*\d{1,7}(?:[.,]\d{1,2})?)'
+            r'\s*(?:pesos|mxn)\b',
+            t
+        )
+
+    if not m:
+        return None
+
+    try:
+        numero = m.group(1).replace(' ', '').replace(',', '.')
+        valor = Decimal(numero)
+
+        if not valor.is_finite() or valor <= 0:
+            return None
+
+        return valor
+
+    except InvalidOperation:
+        return None
+
     # Solo precios explícitos: $199, 199 pesos, precio 199, cuesta 199.
     t = normalizar(texto)
     m = re.search(r'(?:\$\s*|precio\s*(?:de|es|a|:)?\s*|cuesta\s*|vale\s*|a\s+)(\d{1,7}(?:[.,]\d{1,2})?)\s*(?:pesos|mxn)?\b', t)
@@ -82,12 +117,16 @@ class Chatbot:
         if intent == 'saludo' and not self.activo:
             return 'Hola. Puedo ayudarte a registrar una solicitud publicitaria. Escribe: quiero generar publicidad.'
         if intent == 'generar_publicidad':
-            self.activo, self.estado = True, 'captura'
+            # Cada nueva solicitud comienza sin datos anteriores.
+            self.categoria = None
+            self.precio = None
+            self.activo = True
+            self.estado = 'captura'
         if not self.activo:
             return 'Para iniciar, escribe: quiero generar publicidad. O escribe ayuda.'
         if intent == 'confirmar_categoria' and self.estado == 'confirmar':
             self.estado, self.activo = 'finalizado', False
-            return f'Solicitud confirmada: {self.categoria}, ${self.precio:.2f} MXN. Fin de chatbot de prueba.'
+            return f'Solicitud confirmada: {self.categoria}, ${self.precio:.2f} MXN. Fin de chatbot de pruebaayuda.'
         if intent in ('corregir_categoria', 'modificar_precio'):
             if intent == 'corregir_categoria':
                 cat = categoria_en(mensaje)
