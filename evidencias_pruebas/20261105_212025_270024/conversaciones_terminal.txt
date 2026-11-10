@@ -1,0 +1,343 @@
+﻿PRUEBAS CONTROLADAS — AVANCE 2 (CHATBOT ORIGINAL E HÍBRIDO)
+========================================================================
+Fecha de ejecución: 2026-11-05T21:20:26
+Python: 3.12.0
+
+Cada respuesta fue producida por el chatbot durante esta ejecución.
+[OK] significa que la respuesta Y el estado coincidieron con lo esperado.
+[FALLO] registra diferencias para analizarlas, sin ocultarlas.
+
+========================================================================
+REGLAS | E01 - Flujo completo DC
+Tipo: funcional | Resultado: 5/5 pasos correctos
+------------------------------------------------------------------------
+Usuario: hola
+Chatbot: Hola. Puedo ayudarte a registrar una solicitud publicitaria. Escribe: quiero generar publicidad.
+Evaluación: [OK] | Estado: inicio
+
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: DC Comics
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: precio $199
+Chatbot: Categoria: DC. Precio: $199.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: si
+Chatbot: Solicitud confirmada: DC, $199.00 MXN. En este avance no se genera la imagen publicitaria.
+Evaluación: [OK] | Estado: finalizado
+
+========================================================================
+REGLAS | E02 - Flujo MARVEL con confirmacion
+Tipo: funcional | Resultado: 4/4 pasos correctos
+------------------------------------------------------------------------
+Usuario: Quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: MARVEL
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: $250
+Chatbot: Categoria: MARVEL. Precio: $250.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: SI
+Chatbot: Solicitud confirmada: MARVEL, $250.00 MXN. En este avance no se genera la imagen publicitaria.
+Evaluación: [OK] | Estado: finalizado
+
+========================================================================
+REGLAS | E03 - Correccion de categoria
+Tipo: funcional | Resultado: 6/6 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: OTROS
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: $190
+Chatbot: Categoria: OTROS. Precio: $190.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: no
+Chatbot: Indica la categoria correcta: MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: MANGAS
+Chatbot: Categoria: MANGAS. Precio: $190.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: si
+Chatbot: Solicitud confirmada: MANGAS, $190.00 MXN. En este avance no se genera la imagen publicitaria.
+Evaluación: [OK] | Estado: finalizado
+
+========================================================================
+REGLAS | E04 - Ayuda y despedida
+Tipo: observacion | Resultado: 1/2 pasos correctos
+------------------------------------------------------------------------
+Usuario: ¿Me explicas cómo funciona?
+Chatbot: Para iniciar, escribe: quiero generar publicidad. O escribe ayuda.
+Evaluación: [FALLO] | Estado: inicio
+Esperado (fragmento): Puedo registrar; estado: inicio
+
+Usuario: hasta luego
+Chatbot: Hasta luego. Gracias por utilizar el asistente.
+Evaluación: [OK] | Estado: inicio
+
+========================================================================
+REGLAS | E05 - Cancelacion y reinicio
+Tipo: funcional | Resultado: 4/4 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: DC
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: cancelar
+Chatbot: Solicitud cancelada. No se genero publicidad.
+Evaluación: [OK] | Estado: inicio
+
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+========================================================================
+REGLAS | E06 - Precio cero rechazado
+Tipo: funcional | Resultado: 3/3 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: MARVEL
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: precio $0
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+========================================================================
+REGLAS | E07 - Precio negativo rechazado
+Tipo: funcional | Resultado: 2/3 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: DC
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: precio -50 pesos
+Chatbot: Categoria: DC. Precio: $50.00 MXN. ¿Confirmas los datos?
+Evaluación: [FALLO] | Estado: confirmar
+Esperado (fragmento): precio; estado: captura
+
+========================================================================
+REGLAS | E08 - Editorial fuera de categorias
+Tipo: diagnostico | Resultado: 2/2 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: Planeta
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+========================================================================
+REGLAS | E09 - Saludo y solicitud con errata
+Tipo: diagnostico | Resultado: 1/2 pasos correctos
+------------------------------------------------------------------------
+Usuario: hola
+Chatbot: Hola. Puedo ayudarte a registrar una solicitud publicitaria. Escribe: quiero generar publicidad.
+Evaluación: [OK] | Estado: inicio
+
+Usuario: quiero generar una ublicidad, ¿Se puede?
+Chatbot: Para iniciar, escribe: quiero generar publicidad. O escribe ayuda.
+Evaluación: [FALLO] | Estado: inicio
+Esperado (fragmento): categoria del producto; estado: captura
+
+========================================================================
+HIBRIDO | E01 - Flujo completo DC
+Tipo: funcional | Resultado: 5/5 pasos correctos
+------------------------------------------------------------------------
+Usuario: hola
+Chatbot: Hola. Puedo ayudarte a registrar una solicitud publicitaria. Escribe: quiero generar publicidad.
+Evaluación: [OK] | Estado: inicio
+
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: DC Comics
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: precio $199
+Chatbot: Categoria: DC. Precio: $199.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: si
+Chatbot: Solicitud confirmada: DC, $199.00 MXN. En este avance no se genera la imagen publicitaria.
+Evaluación: [OK] | Estado: finalizado
+
+========================================================================
+HIBRIDO | E02 - Flujo MARVEL con confirmacion
+Tipo: funcional | Resultado: 4/4 pasos correctos
+------------------------------------------------------------------------
+Usuario: Quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: MARVEL
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: $250
+Chatbot: Categoria: MARVEL. Precio: $250.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: SI
+Chatbot: Solicitud confirmada: MARVEL, $250.00 MXN. En este avance no se genera la imagen publicitaria.
+Evaluación: [OK] | Estado: finalizado
+
+========================================================================
+HIBRIDO | E03 - Correccion de categoria
+Tipo: funcional | Resultado: 6/6 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: OTROS
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: $190
+Chatbot: Categoria: OTROS. Precio: $190.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: no
+Chatbot: Indica la categoria correcta: MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: MANGAS
+Chatbot: Categoria: MANGAS. Precio: $190.00 MXN. ¿Confirmas los datos?
+Evaluación: [OK] | Estado: confirmar
+
+Usuario: si
+Chatbot: Solicitud confirmada: MANGAS, $190.00 MXN. En este avance no se genera la imagen publicitaria.
+Evaluación: [OK] | Estado: finalizado
+
+========================================================================
+HIBRIDO | E04 - Ayuda y despedida
+Tipo: observacion | Resultado: 2/2 pasos correctos
+------------------------------------------------------------------------
+Usuario: ¿Me explicas cómo funciona?
+Chatbot: Puedo registrar una solicitud de publicidad: categoria MANGAS, DC, MARVEL u OTROS; precio; confirmacion, correccion o cancelacion. Aun no genero imagenes.
+Evaluación: [OK] | Estado: inicio
+SVM consultado: solicitar_ayuda
+
+Usuario: hasta luego
+Chatbot: Hasta luego. Gracias por utilizar el asistente.
+Evaluación: [OK] | Estado: inicio
+
+========================================================================
+HIBRIDO | E05 - Cancelacion y reinicio
+Tipo: funcional | Resultado: 4/4 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: DC
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: cancelar
+Chatbot: Solicitud cancelada. No se genero publicidad.
+Evaluación: [OK] | Estado: inicio
+
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+========================================================================
+HIBRIDO | E06 - Precio cero rechazado
+Tipo: funcional | Resultado: 3/3 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: MARVEL
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: precio $0
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+SVM consultado: indicar_precio
+
+========================================================================
+HIBRIDO | E07 - Precio negativo rechazado
+Tipo: funcional | Resultado: 2/3 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: DC
+Chatbot: ¿Cual es el precio? Escribe por ejemplo: precio $199.
+Evaluación: [OK] | Estado: captura
+
+Usuario: precio -50 pesos
+Chatbot: Categoria: DC. Precio: $50.00 MXN. ¿Confirmas los datos?
+Evaluación: [FALLO] | Estado: confirmar
+Esperado (fragmento): precio; estado: captura
+
+========================================================================
+HIBRIDO | E08 - Editorial fuera de categorias
+Tipo: diagnostico | Resultado: 1/2 pasos correctos
+------------------------------------------------------------------------
+Usuario: quiero generar publicidad
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+
+Usuario: Planeta
+Chatbot: Puedo registrar una solicitud de publicidad: categoria MANGAS, DC, MARVEL u OTROS; precio; confirmacion, correccion o cancelacion. Aun no genero imagenes.
+Evaluación: [FALLO] | Estado: captura
+SVM consultado: solicitar_ayuda
+Esperado (fragmento): categoria del producto; estado: captura
+
+========================================================================
+HIBRIDO | E09 - Saludo y solicitud con errata
+Tipo: diagnostico | Resultado: 2/2 pasos correctos
+------------------------------------------------------------------------
+Usuario: hola
+Chatbot: Hola. Puedo ayudarte a registrar una solicitud publicitaria. Escribe: quiero generar publicidad.
+Evaluación: [OK] | Estado: inicio
+
+Usuario: quiero generar una ublicidad, ¿Se puede?
+Chatbot: ¿Cual es la categoria del producto? MANGAS, DC, MARVEL u OTROS.
+Evaluación: [OK] | Estado: captura
+SVM consultado: generar_publicidad
+
+========================================================================
+RESUMEN
+Escenarios funcionales aprobados: 10/12
+Nota: son pruebas guiadas, no una medida de accuracy de SVM.
+Para métricas estadísticas consultar nlp/resultados/metricas_nlp.json.

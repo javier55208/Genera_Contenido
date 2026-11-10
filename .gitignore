@@ -1,0 +1,19 @@
+# Dataset visual local
+/Dataset_IA/
+
+# Pesos de modelos entrenados
+*.pth
+*.pt
+
+# Copias de archivos (p. ej. "archivo - Copy.py")
+* - Copy*
+
+# Entradas de gitignore_adicional.txt y caches
+__pycache__/
+/.venv/
+*.joblib
+/vision/resultados/particion_visual.csv
+/vision/resultados/cnn/
+
+# Copias con sufijo "Copy" (con espacio o guion antes)
+*[ -][Cc]opy*

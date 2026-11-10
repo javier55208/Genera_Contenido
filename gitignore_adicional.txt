@@ -1,0 +1,8 @@
+# Fusionar MANUALMENTE con el .gitignore existente, sin reemplazarlo
+/.venv/
+/Dataset_IA/
+*.pth
+*.pt
+*.joblib
+/vision/resultados/particion_visual.csv
+/vision/resultados/cnn/

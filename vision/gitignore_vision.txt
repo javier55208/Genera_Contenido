@@ -1,0 +1,8 @@
+# Fusionar estas reglas con tu .gitignore; NO reemplazarlo.
+.venv-cnn/
+__pycache__/
+vision/resultados/
+Dataset_IA/
+datasets/
+*.pth
+*.pt

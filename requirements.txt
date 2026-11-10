@@ -1,1 +1,4 @@
+# Dependencias de Avance 1 y NLP Avance 2
 nltk>=3.8,<4
+scikit-learn>=1.3,<2
+joblib>=1.3,<2

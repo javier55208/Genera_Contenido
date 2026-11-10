@@ -1,0 +1,9 @@
+﻿caso,mensaje,intencion_esperada,intencion_predicha,coincide,error
+S01,Quiero preparar un anuncio de Batman,generar_publicidad,generar_publicidad,1,
+S02,Necesito ayuda para utilizar el asistente,solicitar_ayuda,solicitar_ayuda,1,
+S03,Hasta luego,despedida,despedida,1,
+S04,"Hola, buenas tardes",saludo,saludo,1,
+S05,Quisiera anular la solicitud,cancelar,cancelar,1,
+S06,El precio es 125 pesos,indicar_precio,modificar_precio,0,
+S07,La categoría es Marvel,indicar_categoria,corregir_categoria,0,
+S08,Quiero corregir la categoría,corregir_categoria,corregir_categoria,1,

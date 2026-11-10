@@ -1,0 +1,11 @@
+﻿real\predicha,saludo,generar_publicidad,indicar_categoria,indicar_precio,confirmar_categoria,corregir_categoria,modificar_precio,solicitar_ayuda,cancelar,despedida
+saludo,6,0,0,0,0,0,0,0,0,0
+generar_publicidad,0,3,0,0,0,0,0,0,3,0
+indicar_categoria,0,0,1,0,0,4,0,1,0,0
+indicar_precio,0,0,0,4,0,0,2,0,0,0
+confirmar_categoria,0,0,0,0,4,1,0,1,0,0
+corregir_categoria,0,0,1,0,0,5,0,0,0,0
+modificar_precio,0,0,0,2,0,2,2,0,0,0
+solicitar_ayuda,0,0,0,0,0,0,0,6,0,0
+cancelar,0,4,0,0,0,0,0,1,1,0
+despedida,1,0,0,0,1,0,0,0,0,4

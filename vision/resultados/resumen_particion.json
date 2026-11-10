@@ -1,0 +1,29 @@
+{
+  "dataset": "C:\\Users\\javie\\PycharmProjects\\Genera Contenido\\Dataset_IA",
+  "semilla": 42,
+  "total": 900,
+  "agrupacion": "Contenido_Producto dentro de cada clase; evita fuga de una misma serie",
+  "objetivo": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "conteos": {
+    "MANGAS": {
+      "train": 210,
+      "val": 45,
+      "test": 45
+    },
+    "DC_COMICS": {
+      "train": 210,
+      "val": 45,
+      "test": 45
+    },
+    "MARVEL_COMICS": {
+      "train": 210,
+      "val": 45,
+      "test": 45
+    }
+  },
+  "nota": "Los tamaños pueden variar respecto a 70/15/15 para mantener series juntas."
+}

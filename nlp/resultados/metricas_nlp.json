@@ -1,0 +1,136 @@
+{
+  "algoritmo": "LinearSVC (SVM lineal)",
+  "representacion": "TF-IDF unigramas y bigramas",
+  "preprocesamiento": [
+    "tokenizacion",
+    "normalizacion",
+    "eliminacion_stopwords",
+    "stemming_es"
+  ],
+  "procedencia_dataset": "ejemplos sinteticos redactados para prototipo; NO son conversaciones reales",
+  "semilla": 42,
+  "separacion": "80/20 por familias de parafrasis, estratificada por intencion",
+  "filas_total": 300,
+  "filas_entrenamiento": 240,
+  "filas_prueba": 60,
+  "clases": [
+    "saludo",
+    "generar_publicidad",
+    "indicar_categoria",
+    "indicar_precio",
+    "confirmar_categoria",
+    "corregir_categoria",
+    "modificar_precio",
+    "solicitar_ayuda",
+    "cancelar",
+    "despedida"
+  ],
+  "distribucion_entrenamiento": {
+    "saludo": 24,
+    "generar_publicidad": 24,
+    "indicar_categoria": 24,
+    "indicar_precio": 24,
+    "confirmar_categoria": 24,
+    "corregir_categoria": 24,
+    "modificar_precio": 24,
+    "solicitar_ayuda": 24,
+    "cancelar": 24,
+    "despedida": 24
+  },
+  "distribucion_prueba": {
+    "saludo": 6,
+    "generar_publicidad": 6,
+    "indicar_categoria": 6,
+    "indicar_precio": 6,
+    "confirmar_categoria": 6,
+    "corregir_categoria": 6,
+    "modificar_precio": 6,
+    "solicitar_ayuda": 6,
+    "cancelar": 6,
+    "despedida": 6
+  },
+  "accuracy_prueba": 0.6,
+  "f1_macro_prueba": 0.5784110334110334,
+  "informe_por_clase": {
+    "saludo": {
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "f1-score": 0.9230769230769231,
+      "support": 6.0
+    },
+    "generar_publicidad": {
+      "precision": 0.42857142857142855,
+      "recall": 0.5,
+      "f1-score": 0.46153846153846156,
+      "support": 6.0
+    },
+    "indicar_categoria": {
+      "precision": 0.5,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.25,
+      "support": 6.0
+    },
+    "indicar_precio": {
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.6666666666666666,
+      "support": 6.0
+    },
+    "confirmar_categoria": {
+      "precision": 0.8,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.7272727272727273,
+      "support": 6.0
+    },
+    "corregir_categoria": {
+      "precision": 0.4166666666666667,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.5555555555555556,
+      "support": 6.0
+    },
+    "modificar_precio": {
+      "precision": 0.5,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.4,
+      "support": 6.0
+    },
+    "solicitar_ayuda": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1-score": 0.8,
+      "support": 6.0
+    },
+    "cancelar": {
+      "precision": 0.25,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.2,
+      "support": 6.0
+    },
+    "despedida": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.8,
+      "support": 6.0
+    },
+    "accuracy": 0.6,
+    "macro avg": {
+      "precision": 0.6085714285714285,
+      "recall": 0.6,
+      "f1-score": 0.5784110334110334,
+      "support": 60.0
+    },
+    "weighted avg": {
+      "precision": 0.6085714285714285,
+      "recall": 0.6,
+      "f1-score": 0.5784110334110334,
+      "support": 60.0
+    }
+  },
+  "advertencias": [
+    "Las metricas solo representan el conjunto sintetico de prueba, no usuarios reales.",
+    "Las familias de parafrasis se mantienen separadas entre entrenamiento y prueba.",
+    "Mensajes breves como si/no requieren evaluar estado conversacional en la futura integracion.",
+    "El clasificador NLP no valida precios ni categorias ni reemplaza las reglas de seguridad.",
+    "No se incluyo una clase abierta para mensajes no reconocidos."
+  ]
+}

@@ -1,0 +1,61 @@
+﻿id,texto,intencion_real,intencion_predicha,correcto,grupo
+saludo_01_1,Hola,saludo,saludo,1,saludo_familia_01
+saludo_01_2,"Hola, buenos días",saludo,saludo,1,saludo_familia_01
+saludo_01_3,"Hola, ¿cómo estás?",saludo,saludo,1,saludo_familia_01
+saludo_02_1,Buen día,saludo,saludo,1,saludo_familia_02
+saludo_02_2,Muy buen día para ti,saludo,saludo,1,saludo_familia_02
+saludo_02_3,Que tengas buen día,saludo,saludo,1,saludo_familia_02
+generar_publicidad_04_1,Vamos a publicar una novedad,generar_publicidad,generar_publicidad,1,generar_publicidad_familia_04
+generar_publicidad_04_2,Necesito anunciar una novedad,generar_publicidad,generar_publicidad,1,generar_publicidad_familia_04
+generar_publicidad_04_3,Quiero dar a conocer un lanzamiento,generar_publicidad,generar_publicidad,1,generar_publicidad_familia_04
+generar_publicidad_05_1,Inicia una solicitud de publicidad,generar_publicidad,cancelar,0,generar_publicidad_familia_05
+generar_publicidad_05_2,Abre una solicitud de anuncio,generar_publicidad,cancelar,0,generar_publicidad_familia_05
+generar_publicidad_05_3,Comencemos una solicitud publicitaria,generar_publicidad,cancelar,0,generar_publicidad_familia_05
+indicar_categoria_03_1,Es de Marvel,indicar_categoria,corregir_categoria,0,indicar_categoria_familia_03
+indicar_categoria_03_2,La categoría correcta es Marvel Comics,indicar_categoria,corregir_categoria,0,indicar_categoria_familia_03
+indicar_categoria_03_3,Perteneciente a Marvel,indicar_categoria,corregir_categoria,0,indicar_categoria_familia_03
+indicar_categoria_04_1,La categoría es otros,indicar_categoria,corregir_categoria,0,indicar_categoria_familia_04
+indicar_categoria_04_2,Corresponde a otros productos,indicar_categoria,indicar_categoria,1,indicar_categoria_familia_04
+indicar_categoria_04_3,Selecciono la opción otros,indicar_categoria,solicitar_ayuda,0,indicar_categoria_familia_04
+indicar_precio_02_1,Cuesta 180 pesos,indicar_precio,indicar_precio,1,indicar_precio_familia_02
+indicar_precio_02_2,Cuesta 250 pesos,indicar_precio,indicar_precio,1,indicar_precio_familia_02
+indicar_precio_02_3,Cuesta 95 pesos,indicar_precio,indicar_precio,1,indicar_precio_familia_02
+indicar_precio_09_1,El importe es de 155 pesos,indicar_precio,modificar_precio,0,indicar_precio_familia_09
+indicar_precio_09_2,Importe: 275 pesos,indicar_precio,modificar_precio,0,indicar_precio_familia_09
+indicar_precio_09_3,El total es $285,indicar_precio,indicar_precio,1,indicar_precio_familia_09
+confirmar_categoria_02_1,Correcto,confirmar_categoria,confirmar_categoria,1,confirmar_categoria_familia_02
+confirmar_categoria_02_2,Todo correcto,confirmar_categoria,confirmar_categoria,1,confirmar_categoria_familia_02
+confirmar_categoria_02_3,Es correcto lo que indicas,confirmar_categoria,confirmar_categoria,1,confirmar_categoria_familia_02
+confirmar_categoria_07_1,Acepto,confirmar_categoria,solicitar_ayuda,0,confirmar_categoria_familia_07
+confirmar_categoria_07_2,Acepto la categoría,confirmar_categoria,corregir_categoria,0,confirmar_categoria_familia_07
+confirmar_categoria_07_3,Acepto los datos del producto,confirmar_categoria,confirmar_categoria,1,confirmar_categoria_familia_07
+corregir_categoria_01_1,"No, es de DC",corregir_categoria,corregir_categoria,1,corregir_categoria_familia_01
+corregir_categoria_01_2,"No, corresponde a Marvel",corregir_categoria,corregir_categoria,1,corregir_categoria_familia_01
+corregir_categoria_01_3,"No, el producto es manga",corregir_categoria,indicar_categoria,0,corregir_categoria_familia_01
+corregir_categoria_10_1,La marca elegida no corresponde,corregir_categoria,corregir_categoria,1,corregir_categoria_familia_10
+corregir_categoria_10_2,Elegiste la clasificación incorrecta,corregir_categoria,corregir_categoria,1,corregir_categoria_familia_10
+corregir_categoria_10_3,Quiero rectificar la categoría,corregir_categoria,corregir_categoria,1,corregir_categoria_familia_10
+modificar_precio_02_1,Modifica el costo a $300,modificar_precio,indicar_precio,0,modificar_precio_familia_02
+modificar_precio_02_2,Modifica el costo del producto,modificar_precio,corregir_categoria,0,modificar_precio_familia_02
+modificar_precio_02_3,Necesito modificar el costo,modificar_precio,corregir_categoria,0,modificar_precio_familia_02
+modificar_precio_04_1,Actualiza el precio a $449,modificar_precio,indicar_precio,0,modificar_precio_familia_04
+modificar_precio_04_2,Actualiza el precio del cómic,modificar_precio,modificar_precio,1,modificar_precio_familia_04
+modificar_precio_04_3,Necesito actualizar el precio,modificar_precio,modificar_precio,1,modificar_precio_familia_04
+solicitar_ayuda_04_1,Enséñame a usar el chatbot,solicitar_ayuda,solicitar_ayuda,1,solicitar_ayuda_familia_04
+solicitar_ayuda_04_2,Quiero instrucciones de uso,solicitar_ayuda,solicitar_ayuda,1,solicitar_ayuda_familia_04
+solicitar_ayuda_04_3,Muéstrame las instrucciones,solicitar_ayuda,solicitar_ayuda,1,solicitar_ayuda_familia_04
+solicitar_ayuda_09_1,Cuáles son los comandos disponibles,solicitar_ayuda,solicitar_ayuda,1,solicitar_ayuda_familia_09
+solicitar_ayuda_09_2,Dime los comandos,solicitar_ayuda,solicitar_ayuda,1,solicitar_ayuda_familia_09
+solicitar_ayuda_09_3,Lista de comandos que entiendes,solicitar_ayuda,solicitar_ayuda,1,solicitar_ayuda_familia_09
+cancelar_01_1,Cancelar,cancelar,solicitar_ayuda,0,cancelar_familia_01
+cancelar_01_2,Cancela la solicitud,cancelar,cancelar,1,cancelar_familia_01
+cancelar_01_3,Quiero cancelar,cancelar,generar_publicidad,0,cancelar_familia_01
+cancelar_10_1,Cancela esta promoción,cancelar,generar_publicidad,0,cancelar_familia_10
+cancelar_10_2,Ya no quiero la publicidad,cancelar,generar_publicidad,0,cancelar_familia_10
+cancelar_10_3,Cancelar esta campaña,cancelar,generar_publicidad,0,cancelar_familia_10
+despedida_04_1,Hasta pronto,despedida,despedida,1,despedida_familia_04
+despedida_04_2,Hasta una próxima ocasión,despedida,despedida,1,despedida_familia_04
+despedida_04_3,Hasta la próxima,despedida,despedida,1,despedida_familia_04
+despedida_09_1,Que estés bien,despedida,confirmar_categoria,0,despedida_familia_09
+despedida_09_2,"Cuídate mucho, adiós",despedida,despedida,1,despedida_familia_09
+despedida_09_3,"Que tengas buen día, adiós",despedida,saludo,0,despedida_familia_09

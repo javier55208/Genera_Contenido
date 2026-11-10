@@ -1,0 +1,40 @@
+{
+  "texto": "Cambia el precio a $249, por favor",
+  "etapas": {
+    "tokenizacion": [
+      "Cambia",
+      "el",
+      "precio",
+      "a",
+      "$",
+      "249",
+      ",",
+      "por",
+      "favor"
+    ],
+    "normalizacion": [
+      "cambia",
+      "el",
+      "precio",
+      "a",
+      "pesos",
+      "numero",
+      "por",
+      "favor"
+    ],
+    "sin_stopwords": [
+      "cambia",
+      "precio",
+      "pesos",
+      "numero",
+      "favor"
+    ],
+    "stemming": [
+      "cambi",
+      "preci",
+      "pes",
+      "numer",
+      "favor"
+    ]
+  }
+}

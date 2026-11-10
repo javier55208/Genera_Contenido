@@ -1,0 +1,16 @@
+{
+  "fecha_generacion": "2026-11-05T21:20:26",
+  "version_python": "3.12.0",
+  "modos_ejecutados": [
+    "reglas",
+    "hibrido"
+  ],
+  "escenarios": 18,
+  "escenarios_funcionales_aprobados": 10,
+  "escenarios_funcionales_totales": 12,
+  "escenarios_diagnosticos_y_observacion": 6,
+  "sondeos_svm": 8,
+  "sondeos_svm_coincidentes": 6,
+  "advertencias": [],
+  "nota_metodologica": "Los escenarios guiados comprueban funciones especificas; los sondeos SVM son casos exploratorios y NO equivalen a accuracy de un conjunto test independiente. Para metricas del clasificador, usar nlp/resultados/metricas_nlp.json generado por entrenamiento."
+}

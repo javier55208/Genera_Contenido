@@ -1,0 +1,19 @@
+﻿modo,escenario,descripcion,tipo,pasos,pasos_correctos,cumple_escenario
+reglas,E01,Flujo completo DC,funcional,5,5,1
+reglas,E02,Flujo MARVEL con confirmacion,funcional,4,4,1
+reglas,E03,Correccion de categoria,funcional,6,6,1
+reglas,E04,Ayuda y despedida,observacion,2,1,0
+reglas,E05,Cancelacion y reinicio,funcional,4,4,1
+reglas,E06,Precio cero rechazado,funcional,3,3,1
+reglas,E07,Precio negativo rechazado,funcional,3,2,0
+reglas,E08,Editorial fuera de categorias,diagnostico,2,2,1
+reglas,E09,Saludo y solicitud con errata,diagnostico,2,1,0
+hibrido,E01,Flujo completo DC,funcional,5,5,1
+hibrido,E02,Flujo MARVEL con confirmacion,funcional,4,4,1
+hibrido,E03,Correccion de categoria,funcional,6,6,1
+hibrido,E04,Ayuda y despedida,observacion,2,2,1
+hibrido,E05,Cancelacion y reinicio,funcional,4,4,1
+hibrido,E06,Precio cero rechazado,funcional,3,3,1
+hibrido,E07,Precio negativo rechazado,funcional,3,2,0
+hibrido,E08,Editorial fuera de categorias,diagnostico,2,1,0
+hibrido,E09,Saludo y solicitud con errata,diagnostico,2,2,1

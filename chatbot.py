@@ -69,10 +69,14 @@ class Chatbot:
     def resumen(self):
         return f'Categoria: {self.categoria}. Precio: ${self.precio:.2f} MXN. ¿Confirmas los datos?'
 
+    def detectar_intencion(self, mensaje):
+        """Punto de extension; por defecto conserva las reglas del Avance 1."""
+        return intencion(mensaje, self.estado)
+
     def responder(self, mensaje):
         if not isinstance(mensaje, str) or not mensaje.strip():
             return 'Escribe una solicitud. Puedes pedir ayuda para conocer las opciones.'
-        intent = intencion(mensaje, self.estado)
+        intent = self.detectar_intencion(mensaje)
         if intent == 'solicitar_ayuda':
             return 'Puedo registrar una solicitud de publicidad: categoria MANGAS, DC, MARVEL u OTROS; precio; confirmacion, correccion o cancelacion. Aun no genero imagenes.'
         if intent == 'cancelar':
@@ -87,7 +91,7 @@ class Chatbot:
             return 'Para iniciar, escribe: quiero generar publicidad. O escribe ayuda.'
         if intent == 'confirmar_categoria' and self.estado == 'confirmar':
             self.estado, self.activo = 'finalizado', False
-            return f'Solicitud confirmada: {self.categoria}, ${self.precio:.2f} MXN. Fin de chatbot de prueba.'
+            return f'Solicitud confirmada: {self.categoria}, ${self.precio:.2f} MXN. En este avance no se genera la imagen publicitaria.'
         if intent in ('corregir_categoria', 'modificar_precio'):
             if intent == 'corregir_categoria':
                 cat = categoria_en(mensaje)
